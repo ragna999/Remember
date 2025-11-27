@@ -220,7 +220,7 @@ export default function Home() {
                 <p>Suply: maybe 6666 ^^ </p>
                 <p>Minting Date: TBD</p>
                 <p>Chain: TBD</p>
-                <p>Price: TBD xch</p>
+                <p>Price: TBD</p>
               </div>
             </div>
 
