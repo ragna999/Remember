@@ -217,9 +217,11 @@ export default function NFTLayer() {
       <style>{`
       body {
         font-family: Tahoma, Verdana, sans-serif;
-        background: url("/assets/background.png") center/cover no-repeat;
-        color: #002e6b;
-        margin-top: 60px;
+        background-image: url("/assets/background.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;       /* 🟢 skala ikut layar */
+        background-attachment: fixed;
       }
       .windows-layout {
         display: flex;
