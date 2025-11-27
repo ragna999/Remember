@@ -9,8 +9,10 @@ export default function Home() {
   // add your artwork paths here (public/assets/...)
   const heroImages = [
     "/assets/nnnor.jpg",
-    "/assets/memo.jpg",
+    "/assets/fgg.jpg",
     "/assets/newer.jpg",
+    "/assets/lulu.jpg",
+    "/assets/yuyu.jpg",
   ];
 
   const [heroIndex, setHeroIndex] = React.useState(0);
