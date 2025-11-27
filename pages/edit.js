@@ -468,9 +468,9 @@ export default function EditPage() {
                     >
                       Vintage
                     </button>
-                    <button className="btn" onClick={() => applyPreset("tang")}>
+                    {/*<button className="btn" onClick={() => applyPreset("tang")}>
                       Tang Gang
-                    </button>
+                    </button>*/}
 
                     <button className="btn" onClick={resetAllEdits}>
                       Reset All
