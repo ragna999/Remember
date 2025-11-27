@@ -217,10 +217,10 @@ export default function Home() {
                 <p style={{ marginTop: 12 }}>
                   Collection: Memories: No one will remember your name
                 </p>
-                <p>Suply: 666</p>
+                <p>Suply: maybe 6666 ^^ </p>
                 <p>Minting Date: TBD</p>
-                <p>Chain: Chia Blockchain</p>
-                <p>Price: 0.6 xch</p>
+                <p>Chain: TBD</p>
+                <p>Price: TBD xch</p>
               </div>
             </div>
 
