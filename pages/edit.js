@@ -429,10 +429,10 @@ export default function EditPage() {
         <div className="windows-layout">
           {/* Left Panel: Controls */}
           <div className="xp-window xp-left">
-            <div className="xp-titlebar">🎛️ Adjustments</div>
+            <div className="xp-titlebar">Adjustments</div>
             <div className="xp-content">
               <div ref={dropRef} className="upload-zone">
-                <p>🖼️ Drop your images here or click below to upload</p>
+                <p>You can drop multiple images here or click below to upload</p>
                 <input
                   id="file_input"
                   type="file"
