@@ -6,9 +6,6 @@ import Navbar from "@/components/Navbar";
 export default function FAQPage() {
   const router = useRouter();
 
-  // ============================
-  //  ARTICLES
-  // ============================
   const articles = [
     {
       id: "Comingsoon",
@@ -30,7 +27,9 @@ export default function FAQPage() {
   useEffect(() => {
     if (articleRef.current) {
       const h3s = articleRef.current.querySelectorAll("h3");
-      h3s.forEach((h) => (h.id = h.innerText.toLowerCase().replace(/\s+/g, "-")));
+      h3s.forEach(
+        (h) => (h.id = h.innerText.toLowerCase().replace(/\s+/g, "-"))
+      );
     }
   }, [activeArticle]);
 
@@ -39,16 +38,21 @@ export default function FAQPage() {
       <style>{`
         body {
           font-family: Tahoma, Verdana, sans-serif;
-          background: url("/assets/background.png") center/cover no-repeat;
           margin: 0;
+          /* FIX: wallpaper selalu nutup, ga ada putih di bawah */
+          background-image: url("/assets/background.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          background-attachment: fixed;
         }
 
-        /* === LAYOUT === */
+        /* === LAYOUT DESKTOP: 3 kolom === */
         .layout {
           display: grid;
           grid-template-columns: 240px 1fr 200px;
           max-width: 1200px;
-          margin: 100px auto;
+          margin: 100px auto 40px;
           gap: 20px;
           padding: 0 20px;
         }
@@ -67,6 +71,12 @@ export default function FAQPage() {
           font-size: 14px;
           border-bottom: 1px solid #bbb;
           padding-bottom: 4px;
+          margin-top: 0;
+        }
+
+        .sidebar ul {
+          margin: 6px 0 0;
+          padding: 0;
         }
 
         .sidebar li {
@@ -86,7 +96,7 @@ export default function FAQPage() {
           color: #002b75;
         }
 
-        /* Artikel */
+        /* Artikel tengah */
         .article {
           background: #ffffff;
           border: 1px solid #b5b5b5;
@@ -111,7 +121,8 @@ export default function FAQPage() {
           padding-bottom: 4px;
         }
 
-        .article p, .article li {
+        .article p,
+        .article li {
           line-height: 1.6;
           font-size: 14px;
         }
@@ -130,6 +141,12 @@ export default function FAQPage() {
           font-size: 14px;
           border-bottom: 1px solid #bbb;
           padding-bottom: 4px;
+          margin-top: 0;
+        }
+
+        .toc ul {
+          margin: 6px 0 0;
+          padding: 0;
         }
 
         .toc li {
@@ -142,10 +159,50 @@ export default function FAQPage() {
         .toc li:hover {
           text-decoration: underline;
         }
-      `}</style>
-      <Navbar/>
 
-      {/* === CONTENT === */}
+        /* ==== SMARTPHONE: 1 kolom, Sections disembunyiin ==== */
+        @media (max-width: 768px) {
+          .layout {
+            grid-template-columns: 1fr;
+            max-width: 620px;
+            margin: 80px auto 20px;
+            gap: 12px;
+            padding: 0 12px;
+          }
+
+          .sidebar,
+          .article {
+            width: 100%;
+          }
+
+          .article {
+            padding: 20px 16px;
+          }
+
+          .article h1 {
+            font-size: 20px;
+          }
+
+          .article p,
+          .article li {
+            font-size: 13px;
+          }
+
+          .toc {
+            display: none;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .layout {
+            margin-top: 78px;
+            margin-bottom: 12px;
+          }
+        }
+      `}</style>
+
+      <Navbar />
+
       <div className="layout">
         {/* Sidebar kiri */}
         <div className="sidebar">
@@ -167,7 +224,8 @@ export default function FAQPage() {
         <div className="article" ref={articleRef}>
           <h1>{activeArticle.title}</h1>
           <small>
-            {activeArticle.date} • {activeArticle.readTime} • {activeArticle.author}
+            {activeArticle.date} • {activeArticle.readTime} •{" "}
+            {activeArticle.author}
           </small>
           <div
             dangerouslySetInnerHTML={{
@@ -178,27 +236,29 @@ export default function FAQPage() {
           />
         </div>
 
-        {/* Sidebar kanan */}
+        {/* TOC kanan – desktop only */}
         <div className="toc">
           <h4>Sections</h4>
           <ul>
-            {Array.from(articleRef.current?.querySelectorAll("h3") || []).map((h) => (
-              <li
-                key={h.id}
-                onClick={() =>
-                  document.getElementById(h.id)?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                {h.innerText}
-              </li>
-            ))}
+            {Array.from(articleRef.current?.querySelectorAll("h3") || []).map(
+              (h) => (
+                <li
+                  key={h.id}
+                  onClick={() =>
+                    document
+                      .getElementById(h.id)
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                >
+                  {h.innerText}
+                </li>
+              )
+            )}
           </ul>
-          
         </div>
-        
       </div>
-      <Footer/>
+
+      <Footer />
     </>
-    
   );
 }
