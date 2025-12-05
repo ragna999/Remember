@@ -210,8 +210,8 @@ export default function NFTLayer() {
     const updated = [...layers];
     updated.splice(layerIdx, 1);
     setLayers(updated);
-  };
-
+  };  
+  
   return (
     <>
       <style>{`

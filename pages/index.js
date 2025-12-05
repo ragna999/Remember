@@ -13,6 +13,10 @@ export default function Home() {
     "/assets/newer.jpg",
     "/assets/lulu.jpg",
     "/assets/yuyu.jpg",
+    "/assets/popio.jpg",
+    "/assets/fuuygy.jpg",
+    "/assets/jimjik.jpg",
+    "/assets/popoiu.jpg",
   ];
 
   const [heroIndex, setHeroIndex] = React.useState(0);
