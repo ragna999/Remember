@@ -8,11 +8,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   // add your artwork paths here (public/assets/...)
   const heroImages = [
-    "/assets/nnnor.jpg",
-    "/assets/fgg.jpg",
-    "/assets/newer.jpg",
-    "/assets/lulu.jpg",
-    "/assets/yuyu.jpg",
+      
     "/assets/popio.jpg",
     "/assets/fuuygy.jpg",
     "/assets/jimjik.jpg",
